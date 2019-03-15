@@ -1,0 +1,13 @@
+function dxdt = movimiento(t,x)
+    x=x(1);
+    y=x(2);
+    dxdt = [0.4*x-0.4*x*y; 2*x*y-0.09*y];
+end
+
+function [t,x]=call_movimiento()
+tspan=[0, 10];
+x0=[0, 0];
+[t,x] = ode15s(@movimiento, tspan, x0);
+end
+
+//Los parametros se ingresaron bien pero no marca nada :/
